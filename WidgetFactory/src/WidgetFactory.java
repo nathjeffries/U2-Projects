@@ -1,10 +1,39 @@
+import javax.swing.JOptionPane;
 public class WidgetFactory {
+
+
+static double numWidgets;
+static double numDays;
+static double costProduction;
+static double costWidgets;
+static double profit;
+
+
+
+
+    public static void main(String[] args) {
+        numWidgets = Double.parseDouble(JOptionPane.showInputDialog("How many Widgets were made each hour?"));
+        numDays = Double.parseDouble(JOptionPane.showInputDialog("How many days has it been?"));
+
+        calculate();
+    }
+    public static void calculate() {
+costProduction = numDays * 5 * 16 * 16.5;
+costWidgets = numWidgets * 16 * numDays * 10;
+profit = costWidgets - costProduction;
+        JOptionPane.showMessageDialog(null,"Total number of Widgets: " + (numWidgets * numDays * 16) + "\n"+" Total number of days: " + numDays +"\n"+ " Cost of Widgets: $" + costWidgets + "\n"+ " Cost of production: $" + costProduction +"\n"+ " Total profit: $" + profit);
+
+
+    }
+
+
+
 
     /*
     Lessons L1 - L3
 
     You have been asked by the manager of the Widget Factory to create a program which will tell how many days it will take to produce a number of widgets.
-    It should also output the cost of the widgets, the cost to produce the widget and the profit.
+    It should also output the cost of the widgets, the cost to produce the widget, and the profit.
 
     Specific Details:
      - 10 Widgets are made each hour
